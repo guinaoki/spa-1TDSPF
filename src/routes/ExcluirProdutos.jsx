@@ -2,6 +2,6 @@
 
 export default function ExcluirProdutos() {
   return (
-    <div>ExcluirProdutos</div>
+    <h1>Excluir Produtos</h1>
   )
 }

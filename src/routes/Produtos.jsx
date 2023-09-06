@@ -4,6 +4,9 @@ import {AiFillEdit as EditObj} from "react-icons/ai"
 import {MdDelete as DelObj} from "react-icons/md"
 
 export default function produtos(){
+
+document.title = "PRODUTOS";
+
     return(
         <>
         <h1>Produtos Informáticos - FIAPO</h1>

@@ -4,25 +4,38 @@ import produtos from "./Produtos";
 
 export default function EditarProdutos(){
 
+document.title = "EDITAR PRODUTO";
+
 const {id} = useParams();
 
-const produtoRecuperado = ListaProdutos.filter((produto) => {
-    if(produto.id == id){
-        return produto;
-    }
-
-});
-
-const objProdutoRecuperado = produtoRecuperado[0];
+const produtoRecuperado = ListaProdutos.filter((produto) => produto.id == id)[0]
 
     return(
         <>
-        <h1>EditarProdutos</h1>
-        <h2>PRODUTO</h2>
-        <p>Produto Selecionado - {objProdutoRecuperado.nome}</p>
-        <p>NOME : {objProdutoRecuperado.nome}</p>
-        <p>DESCRIÇÃO : {objProdutoRecuperado.desc}</p>
-        <p>PREÇO : {objProdutoRecuperado.preco}</p>
+        <div>
+            <form>
+                <fieldset>
+                    <legend>Produto Selecionado</legend>
+                    <div>
+                        <label htmlFor="idNome">Nome</label>
+                        <input type="text" name="nome" id="idNome" 
+                        defaultValue={produtoRecuperado.nome}/>
+
+                        <label htmlFor="idDesc">Descrição</label>
+                        <input type="text" name="desc" id="idDesc" 
+                        defaultValue={produtoRecuperado.desc}/>
+
+                        <label htmlFor="idPreco">Preço</label>
+                        <input type="text" name="preco" id="idPreco"
+                        defaultValue={produtoRecuperado.preco}/>
+
+                    </div>
+                    <div>
+                        <button>EDITAR</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
         </>
     )
 }

@@ -1,0 +1,20 @@
+.tblEstilo{
+    border: 1px solid #ccc;
+    margin: 0 auto;
+
+    .tblHeader{
+        background-color: rgb(231, 245, 107);
+        border: 2px solid #ccc;
+    }
+
+    .tblData{
+        border: 1px solid #974d4d;
+    }
+
+    .tblLine{
+        background-color: #ccc;
+        &:hover{
+            background-color: #b1b1b1;
+        }
+    }
+}

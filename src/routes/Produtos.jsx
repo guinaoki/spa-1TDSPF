@@ -2,6 +2,7 @@ import { ListaProdutos } from "../components/ListaProdutos"
 import { Link } from "react-router-dom"
 import {AiFillEdit as EditObj} from "react-icons/ai"
 import {MdDelete as DelObj} from "react-icons/md"
+import estilos from "./Produtos.module.css"
 
 export default function produtos(){
 
@@ -11,25 +12,25 @@ document.title = "PRODUTOS";
         <>
         <h1>Produtos Informáticos - FIAPO</h1>
 
-        <table>
+        <table className={estilos.tblEstilo}>
 
         <thead>
-        <tr>
-            <th>ID</th>
-            <th>NOME</th>
-            <th>DESCRIÇÃO</th>
-            <th>PREÇO</th>
+        <tr className={estilos.tblLine}>
+            <th className={estilos.tblHeader}>ID</th>
+            <th className={estilos.tblHeader}>NOME</th>
+            <th className={estilos.tblHeader}>DESCRIÇÃO</th>
+            <th className={estilos.tblHeader}>PREÇO</th>
         </tr>
         </thead>
 
         <tbody>
         {ListaProdutos.map((produto,indice)=>(
-            <tr key={indice}>
-                <td>{produto.id}</td>
-                <td>{produto.nome}</td>
-                <td>{produto.desc}</td>
-                <td>{produto.preco}</td>
-                <td> <Link to={`/editar/produtos/${produto.id}`}><EditObj/></Link> | 
+            <tr key={indice} className={estilos.tblLine}>
+                <td className={estilos.tblData}>{produto.id}</td>
+                <td className={estilos.tblData}>{produto.nome}</td>
+                <td className={estilos.tblData}>{produto.desc}</td>
+                <td className={estilos.tblData}>{produto.preco}</td>
+                <td className={estilos.tblData}> <Link to={`/editar/produtos/${produto.id}`}><EditObj/></Link> | 
                  <Link to={`/excluir/produtos/${produto.id}`}> <DelObj/></Link></td>
             </tr>
         ))}

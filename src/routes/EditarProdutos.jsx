@@ -1,41 +1,92 @@
-import { useParams } from "react-router-dom"
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { ListaProdutos } from "../components/ListaProdutos";
-import produtos from "./Produtos";
 
-export default function EditarProdutos(){
+export default function EditarProdutos() {
+  document.title = "EDITAR PRODUTO";
 
-document.title = "EDITAR PRODUTO";
+  const navigate = useNavigate();
 
-const {id} = useParams();
+  const { id } = useParams();
 
-const produtoRecuperado = ListaProdutos.filter((produto) => produto.id == id)[0]
+  const produtoRecuperado = ListaProdutos.filter(
+    (produto) => produto.id == id
+  )[0];
 
-    return(
-        <>
-        <div>
-            <form>
-                <fieldset>
-                    <legend>Produto Selecionado</legend>
-                    <div>
-                        <label htmlFor="idNome">Nome</label>
-                        <input type="text" name="nome" id="idNome" 
-                        defaultValue={produtoRecuperado.nome}/>
+  const [produto, setProduto] = useState({
+    id: produtoRecuperado.id,
+    nome: produtoRecuperado.nome,
+    desc: produtoRecuperado.desc,
+    preco: produtoRecuperado.preco,
+  });
 
-                        <label htmlFor="idDesc">Descrição</label>
-                        <input type="text" name="desc" id="idDesc" 
-                        defaultValue={produtoRecuperado.desc}/>
+  const handleChange = (e) => {
 
-                        <label htmlFor="idPreco">Preço</label>
-                        <input type="text" name="preco" id="idPreco"
-                        defaultValue={produtoRecuperado.preco}/>
+    const {name, value} = e.target;
 
-                    </div>
-                    <div>
-                        <button>EDITAR</button>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-        </>
-    )
+    setProduto({...produto,[name]:value});
+ 
+  }
+
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+
+    let indice;
+
+    ListaProdutos.forEach((item, index)=>{
+        if(item.id == produto.id){
+            indice = index;
+        }
+    });
+
+    ListaProdutos.splice(indice, 1, produto);
+    alert('Seu produto foi alterado com sucesso!')
+    navigate("/produtos");
+  }
+
+  return (
+    <>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <fieldset>
+            <legend>Produto Selecionado</legend>
+            <div>
+              <input type="hidden" name="id" value={produto.id} />
+            </div>
+            <div>
+              <label htmlFor="idNome">Nome</label>
+              <input
+                type="text"
+                name="nome"
+                id="idNome"
+                value={produto.nome} onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="idDesc">Descrição</label>
+              <input
+                type="text"
+                name="desc"
+                id="idDesc"
+                value={produto.desc} onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="idPreco">Preço</label>
+              <input
+                type="text"
+                name="preco"
+                id="idPreco"
+                value={produto.preco} onChange={handleChange}
+              />
+            </div>
+            <div>
+              <button>EDITAR</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <p>Nome : {produto.nome}</p>
+    </>
+  );
 }

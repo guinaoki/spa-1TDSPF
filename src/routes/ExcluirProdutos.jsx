@@ -1,10 +1,20 @@
-
+import React from 'react'
 
 export default function ExcluirProdutos() {
-
-document.title = "EXCLUIR PRODUTOS";
-
   return (
-    <h1>Excluir Produtos</h1>
+    <>
+        <div>
+          <h1>Excluir Produtos</h1>
+          
+          <div>
+            <figure>
+              <img src="" alt="" />
+              <figcaption>Nome - Preço</figcaption>
+            </figure>
+          </div>
+
+        </div>
+    </>
+    
   )
 }

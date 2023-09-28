@@ -36,6 +36,8 @@ fetch("http://localhost:5000/produtos", {
 
       { open ? <ModalInserir open={open} setOpen/> : "" }
 
+      <Link onClick={()=> setOpen}>Cadastrar Produtos</Link>
+
       <button onClick={()=> setOpen(true)}>OPEN-MODAL</button>
 
       <table className={estilos.tblEstilo}>

@@ -1,9 +1,9 @@
 import styles from "./ModalInserir.module.css";
 import "./ModalInserir.scss";
 
-export default function ModalInserir(){
+export default function ModalInserir(props) {
 
-    document.title = "CADASTRO"/node_modules
+    document.title = "CADASTRO";
 
     let novoId;
 
@@ -12,25 +12,27 @@ export default function ModalInserir(){
         headers:{
             "Content-Type":"application/json"
         }
-        
     })
     .then((response)=> response.json())
     .then((data)=>{
         console.log(data)
-        return novoId = (data[data.length-1].id+1)
-        return novoId
-    })
-    .catch(error=> console.log(error));   
+        novoId = (data[data.length-1].id+1)
+        console.log("NOVO ID " + novoId);
+        return novoId;
+        
+        })
+    .catch(error=> console.log(error));
 
 if (props.open){
     return(
         <div className={styles.container}>
             <h1>CADASTRO DE PRODUTOS</h1>
-            <button onClick={()=>props.setOpen(false)}>CLOSE-MODAL</button>
 
-            <div>
+
+            <div className="formGroup">
                 <form>
                     <fieldset>
+                    <span className="btnClose" onClick={()=>props.setClose(false)}>X</span>
                         <legend>Novo Produto</legend>
                         <div>
                             <label htmlFor="idNome">Nome</label>
@@ -52,7 +54,7 @@ if (props.open){
                             <input type="url" name="img" id="idImg" placeholder="Digite a url da imagem do produto." />
                         </div>
                         <div>
-                            <button>Cadastrar produto</button>
+                            <button>CADASTRAR</button>
                         </div>
                     </fieldset>
                 </form>

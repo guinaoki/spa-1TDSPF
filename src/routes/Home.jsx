@@ -3,8 +3,10 @@ export default function Home() {
     <div>
         <h1>Home</h1>
         <figure>
-          <img src="" alt="" />
+          <figcaption>NOSSOS PRODUTOS</figcaption>
+          <img src="/img/produtos_home_1280.jpg" alt="Produtos" />
         </figure>
+
     </div>
   )
 }

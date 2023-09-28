@@ -1,17 +1,17 @@
+
 //Criando variáveis no SASS:
-$bgColor:#0000;
+$bgColor:#ff0000;
 $txtColor:#fff;
 $displayView:block;
-$bordaArredondada: 5px;
-
-//Criando um agrupamento de estilos, chamamos de MIXING:
+$bordaArredondada:5px;
+//Criando um agrupando de estilos, chamamos de MIXING:
 @mixin estiloPadraoForm($tamanhoFonte,$familiaFonte,$corFonte){
-    
+
     form{
         font-family: $familiaFonte;
         font-size: $tamanhoFonte;
         color: $corFonte;
-    
+
         label{
             display: $displayView;
             letter-spacing: 2px;
@@ -24,10 +24,12 @@ $bordaArredondada: 5px;
     }
 }
 
+
+
 $estiloDaFonte: Arial, Helvetica, sans-serif;
 
 .formGroup{
-    @include estiloPadraoForm(1.5rem, $estiloDaFonte ,#47e9a5 );
+    @include estiloPadraoForm(1.5rem, $estiloDaFonte ,#040532 );
 
     form{
         width: 90%;
@@ -47,10 +49,10 @@ $estiloDaFonte: Arial, Helvetica, sans-serif;
         text-align: center;
         user-select: none;
         float: right;
-        border: 2px solid  #ccc;
+        border: 2px solid #ccc;
 
         &:hover{
-            background-color: #0000;
+            background-color: #000000;
             color: $txtColor;
         }
 
@@ -60,13 +62,14 @@ $estiloDaFonte: Arial, Helvetica, sans-serif;
 
 
     }
-
+    
     input{
         border: 0 solid transparent;
         width: 68%;
         height: 40px;
-        margin: 1% 5%;
+        margin: 1% auto;
         padding: 0 10px;
+
     }
 
     legend{
@@ -77,10 +80,11 @@ $estiloDaFonte: Arial, Helvetica, sans-serif;
         color: $txtColor;
         margin: 0 auto;
         width: 70%;
+        
     }
 
     button{
-        font-weight: bold;
+        font-weight: bold; 
         border: 0 solid transparent;
         border-radius: $bordaArredondada;
         margin: 2% auto;
@@ -93,10 +97,10 @@ $estiloDaFonte: Arial, Helvetica, sans-serif;
         transition: background-color 300ms, color 300ms;
 
         &:hover{
-            background-color: rgb(22, 102, 22);
-            color: $txtColor;
+            background-color: #d2f9d2;
+            color: #000000;
         }
     }
 
-    
+
 }

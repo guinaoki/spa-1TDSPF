@@ -4,7 +4,6 @@ import { Outlet } from "react-router-dom";
 import style from "./App.module.css";
 
 export default function App() {
-  //Área declarativa
   return (
     <>
       {/* Área imperativa */}

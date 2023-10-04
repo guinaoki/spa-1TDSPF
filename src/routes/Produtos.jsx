@@ -34,9 +34,9 @@ fetch("http://localhost:5000/produtos", {
     <>
       <h1>Produtos Informáticos - FIAPO</h1>
 
-      { open ? <ModalInserir open={open} setOpen/> : "" }
+      { open ? <ModalInserir open={open} setOpen={setOpen}/> : "" }
 
-      <Link onClick={()=> setOpen(true)}>Cadastrar Produtos</Link>
+      <Link onClick={()=> setOpen(true)}>Cadastrar Produtos</Link>  
 
       <table className={estilos.tblEstilo}>
         <thead>
